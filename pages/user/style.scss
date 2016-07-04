@@ -1,0 +1,225 @@
+@import "pages/common/glob";
+.userActWrap{
+  background: url(img/login_bg.png) no-repeat center top;
+  background-size: cover;
+  padding: 100px 0;
+  @include clearfix();
+  .userActInner{
+    width: 1200px;
+    margin: 0 auto;
+  }
+  //min-height: 800px;
+  //height: 800px;
+}
+
+.logo{
+  width: 200px;
+  height: 35px;
+  background: url(/pages/user/img/logo.png) no-repeat;
+  display: inline-block;
+  margin-top: 18px;
+}
+
+.rightArea{
+  font-size: 12px;
+  display: inline-block;
+  float: right;
+  margin-top: 30px;
+  color: #3c3c3c;
+  a{
+    color: #35A9A9;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+}
+
+.loginLeft{
+  width: 580px;
+  height: 490px;
+  background: url(img/login_left.png) no-repeat;
+  float: left;
+}
+
+.loginBox{
+  font-size: 14px;
+  width: 400px;
+  height: 420px;
+  border: 1px solid #E1E1E1;
+  background: #fff;
+  float: right;
+}
+.regBox{
+  font-size: 14px;
+  width: 400px;
+  border: 1px solid #E1E1E1;
+  background: #fff;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  .inputLabel{
+    margin: 10px 0!important;
+  }
+  .formGroup{
+    margin-top: 40px;
+  }
+  .formGroup .inputLabel:last-child{
+    border: none;
+  }
+}
+
+
+
+.formBox{
+  width: 300px;
+  margin: 50px auto 0 auto;
+  h2{
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-weight: normal;
+    color: #666;
+    font-size: 18px;
+  }
+
+  .inputLabel{
+    margin: 40px 0;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 10px 0;
+    span, input{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .userIcon{
+      width: 22px;
+      height: 22px;
+      background: url(img/username_icon.png) no-repeat;
+    }
+    .pwdIcon{
+      width: 22px;
+      height: 22px;
+      background: url(img/password_icon.png) no-repeat;
+    }
+    input[type="text"], input[type="password"]{
+      width: 250px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      outline: 0;
+      padding: 0 5px;
+      box-sizing: border-box;
+      margin-left: 10px;
+    }
+
+    .agreement{
+      margin-left: 10px;
+      color: #666;
+      a{
+        text-decoration: none;
+        color: #35A9A9;
+      }
+    }
+    input.telInput{
+      width: 120px;
+    }
+    .getCode{
+      width: 80px;
+      font-size: 12px;
+      margin-left: 5px;
+      height: 30px;
+      line-height: 28px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    input.verCode{
+      width: 50px;
+    }
+  }
+
+  .btnLabel{
+    margin-top: 10px;
+    text-align: right;
+    .defBtn{
+      //margin-left: 90px;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 5px 10px;
+      border: 1px solid #e7e7eb;
+      border-radius: 5px;
+      background: none;
+      outline: none;
+    }
+    .logBtn{
+      //margin-left: 90px;
+      display: block;
+      width: 100%;
+      color: #fff;
+      height: 40px;
+      margin-top: 40px;
+      border: 1px solid #35A9A9;
+      background: #35A9A9;
+      outline: none;
+    }
+    .remenber{
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+      span{
+        margin-left: 5px;
+      }
+    }
+  }
+  .footLabel{
+    margin-top: 20px;
+    padding: 0;
+    @include clearfix();
+
+  }
+}
+.backLnk{
+  text-decoration: none;
+  margin-left: 8px;
+  color: #222;
+}
+
+.chkRember{
+  float: left;
+
+  .remTips{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: #666;
+  }
+}
+
+.chkInput{
+  input{
+    display: none!important;
+  }
+  .chkBox{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50% 50%;
+    border: 1px solid #35A9A9;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+
+    &.check{
+      background: url("img/chk_icon.png") no-repeat center center;
+    }
+  }
+}
+
+.forgotLnk{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #35A9A9;
+  text-decoration: none;
+  float: right;
+}
+

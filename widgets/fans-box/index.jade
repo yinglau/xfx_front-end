@@ -1,0 +1,53 @@
+.fansWrap
+  .addGroup
+    button(type="button", class="btn btn-success", data-ele="addgroup", @click="addGroup")
+      span.plusIcon +
+      | 添加分组
+  .fansAside
+    ul.fansMenu
+      li.fansMenuItem
+        a(href="javascript:;", @click="getAllUserList") 全部用户({{usercount}})
+        ul.fansSubMenu
+          li.fansSubMenuItem(v-for="item in grouplist", track-by="$index")
+            a(href="javascript:;", @click="getUserList", :data-gitem="item|json", :data-gidx="$index") {{item.name}}({{item.count}})
+          //li.fansSubMenuItem
+          //  a(href="#") 新建标签(1)
+      //li.fansMenuItem
+      //  a(href="#") 黑名单(0)
+  .fansMain
+    .fansHead
+      span {{groupTit}}
+      span.groupActBtns(v-if="groupSign>2")
+        a(href="javascript:;", :data-egsign="groupSign", @click="reGroupName") 重命名
+        a(href="javascript:;", :data-dgsign="groupSign", @click="delGroup") 删除
+    template(v-if="userlist.length>0")
+      .fansToolBar
+        //label.checkLab
+          input(type="checkbox", v-model="chkAllItem")
+          span 全选
+        //span.fansActBtn
+          button(class="btn btn-default", type="button", @click="addToGroup", data-ele="addToGroup", :disabled="!chkItemInput.length") 分组
+          //button(class="btn btn-default", type="button") 加入黑名单
+      .fansList
+        .fansItem(v-for="(uidx,item) in userlist", track-by="$index")
+          //input(type="checkbox", class="js_checkedUser", :checked="chkAllItem", :value="item.user_openid", v-model="chkItemInput")
+          span.fansThumb
+            img(:src="item.user_headimgurl")
+          span.fansInfo
+            //a.fansName(href="#") {{item.nickname}}
+            a.fansName(href="#") {{item.user_remark ? item.user_remark+"("+item.user_nickname+")" : item.user_nickname}}
+            p.fansTag
+              a(href="javascript:;", v-if="item.group_namelist.length == 0") 无标签
+              //a(href="javascript:;") {{item.group_namelist}}
+              template(v-for="tag in item.group_namelist")
+                a(href="#", :data-ugid="tag.group_id", :data-ugname="tag.group_name", :data-target="'a'+uidx") {{item.group_namelist.length > 1 && $index == 0 ? tag.group_name+"," : ($index != item.group_namelist.length - 1 ? tag.group_name+"," : tag.group_name)}}
+                //a(href="#", v-if="$index == 0 || $index == item.group_namelist.length-1") {{tag.group_name}}
+                //a(href="#", v-if="$index > 0 && $index < item.group_namelist.length-2") {{tag.group_name}},
+              //a(href="#") 测试标签
+              i.arrowDown(@click="singleUserAddToGroup", :data-uid="item.user_openid", :data-uidx="uidx", :data-ugids="item.user_groupid")
+          button(type="button", class="btn btn-default editNote", :data-idx="$index", :data-openid="item.user_openid", @click="editNickName") 修改备注
+    pager(:pinfo="pageInfo")
+    template(v-else)
+      .emptyResultBox
+        | 无结果,请重新搜索或查看
+        a(href="javascript:;", @click="getAllUserList") 全部用户

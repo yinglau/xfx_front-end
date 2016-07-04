@@ -1,0 +1,23 @@
+@import "../common/glob";
+
+.pageMainHeadTabBar{
+  height: 40px;
+  border-bottom: 1px solid #e7e7eb;
+  margin-top: 10px;
+  .headTabItem{
+    color: #222;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 38px;
+    font-size: 14px;
+    padding: 0 20px;
+    height: 40px;
+    cursor: pointer;
+    &:hover{
+      border-bottom: 3px solid #35A9A9;
+    }
+    &.selected{
+      border-bottom: 3px solid #35A9A9;
+    }
+  }
+}

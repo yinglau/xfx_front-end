@@ -1,0 +1,5 @@
+{
+  "dependencies": [
+    "github:fis-components/vue-resource@0.1.17"
+  ]
+}

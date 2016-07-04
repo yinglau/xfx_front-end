@@ -1,0 +1,17 @@
+extends ../common/base
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 信息管理
+      .pageMainHeadTabBar
+        a.headTabItem.selected(href="#") 全部信息
+        //a.headTabItem(href="#") 已收藏的信息
+    .pageMainMiddle#msgList
+      msg-list
+  template(v-else)
+    applist
+
+  .pageMainFoot
+block append scripts
+  script(type="text/javascript").
+    require(["index"])

@@ -1,0 +1,28 @@
+div.confirmBox
+  div.confirmBoxTit 选择素材
+  //.searchBar
+    span.searchWrap
+      span.searchBox
+        input(type="text", name="searchkey", placeholder="标题/作者/摘要")
+      a.searchBtn(href="javascript:void(0);")
+        i
+    //button(type="button", class="btn btn-success")
+    //  i.addWhite
+    //  | 新建图文信息
+  .infoListWrap
+    ul.infoList#dataList
+      <% _.each(obj, function(item, index){ %>
+      <% var img = '<img src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl='+item.content.news_item[0].thumb_url+'" />'; %>
+      <% var dataDiv = "<div id='dataDiv' data-res='"+JSON.stringify(item)+"' style='display: none;' ></div>" %>
+      li
+        .msgContent
+          <%=dataDiv%>
+          //div(style="display: none;") <%=JSON.stringify(item)%>
+          span.dIndex(style="display: none;", id="dIndex") <%=index%>
+          h4.msgTitle <%=item.content.news_item[0].title%>
+          p.msgDate <%=item.content.create_time%>
+          .msgThumb <%=img%>
+          p.msgDesc <%=item.content.news_item[0].digest%>
+        .msgMask
+        i.selectedCard
+      <% }); %>

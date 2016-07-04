@@ -1,0 +1,31 @@
+extends /pages/common/user_base
+block body
+  .userActWrap
+    .userActInner
+      .loginLeft
+      .loginBox
+        .formBox
+          h2 登录
+          form
+            .inputLabel
+              span.inputTip.userIcon
+              input(name="username", type="text", id="username", placeholder="请输入昵称、手机或者邮箱")
+            .inputLabel
+              span.inputTip.pwdIcon
+              input(name="password", type="password", id="password", placeholder="请输入密码")
+            .btnLabel
+              button(type="button", class="logBtn") 登 录
+              //label.remenber
+              //  input(type="checkbox", name="isremenber", id="isremenber")
+              //  span 记住账号?
+            p.footLabel
+              .chkRember.chkInput
+                span.chkBox
+                input(type="checkbox", id="isremenber")
+                span.remTips 记住账号
+              a.forgotLnk(href="forgetpwd.html") 忘记密码?
+
+block scripts
+  script.
+    require(["login"])
+

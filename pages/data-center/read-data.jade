@@ -1,0 +1,18 @@
+extends /pages/common/base
+
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainMiddle
+      .replyActBtnGroup
+        a(href="fans-data.html") 粉丝增长数
+        a.selected(href="read-data.html") 阅读数
+        a(href="fans2-data.html") 效果追踪
+      div.chartBox(v-show="data.length")
+        div#chart(style="width: 600px; height: 400px;")
+      div.chartBox(v-show="!data.length")
+        p 暂无数据显示
+  template(v-else)
+    applist
+block append scripts
+  script(type="text/javascript").
+    require(["read-data"])

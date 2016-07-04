@@ -1,0 +1,41 @@
+@import "/pages/common/glob";
+.appListBox{
+  padding: 20px;
+  ul{
+    list-style: none;
+    @include clearfix();
+    padding: 0;
+    li{
+      float: left;
+      margin: 20px;
+      font-size: 14px;
+      a{
+        display: block;
+        color: #222;
+        text-decoration: none;
+      }
+      .headImg{
+        width: 130px;
+        height: 130px;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .appName{
+        text-align: center;
+        padding: 5px 0;
+      }
+      .appItem{
+        text-align: center;
+        padding: 5px 0;
+      }
+    }
+  }
+}
+.appEmptyMsg{
+  padding: 200px;
+  p{
+    text-align: center;
+  }
+}

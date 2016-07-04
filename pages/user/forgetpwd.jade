@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="style.scss")
+  body
+    .loginBox
+      .formBox
+        h2 找回密码
+        form
+          .inputLabel
+            span.inputTip 手机号码:
+            input(name="username", type="text", class="telInput")
+            button(type="button", class="getCode") 获取验证码
+          .inputLabel
+            span.inputTip 验证码:
+            input(name="vercode", type="text", class="verCode", maxlength="4")
+          .btnLabel
+            button(type="button", class="logBtn defBtn") 提 交
+            a(href="javascript:history.go(-1);", class="backLnk") 返回
+
+

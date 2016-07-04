@@ -1,0 +1,33 @@
+div.confirmBox
+  div.confirmBoxTit 选择图文信息
+  .pickUrlTab
+    span.urlTabItem.selected 素材库
+    span.urlTabItem 历史消息
+  .pickUrlBlock
+    .urlBlockItem.selected
+      table.urlList
+        thead
+          tr
+            th 标题
+            th 发布日期
+        tbody
+          -for(var i=0;i<6;i++)
+            tr
+              td
+                label
+                  input(type="radio", name="viewUrl")
+                  span 标题1
+              td 2016年4月1日
+    .urlBlockItem
+      .historyBox
+        .historyPreView
+          img(src="../historymsg.jpg")
+          p 公众帐号历史消息列表示例
+        .historyCheck
+          label
+            input(type="checkbox")
+            span 跳转到历史信息列表
+
+
+
+

@@ -1,0 +1,30 @@
+//- link(href="index.scss?__inline", rel="stylesheet")
+template(v-if="appid", v-cloak)
+  section.menuWrap
+    div.menuBox
+      div.menuTop
+      ul#menuList.menuList
+        template(v-if="menu&&menu.length>0")
+          li.parMenuItem.listItem.dragItem(v-for="(parentIdx,item) in menu", :class="['size1of'+(menu.length+1)]", :data-idxno="parentIdx", @click.stop.prevent="setItem(item,$event)", track-by="$index", :data-parentidx="parentIdx")
+            span.menuName {{item.name}}
+            ul.subMenuList
+              template(v-if="item.sub_button")
+                li.listItem.dragItem(v-for="(subIdx,sub) in item.sub_button", @click.stop.prevent="setItem(sub,$event)", :data-idxno="parentIdx+"-"+'subIdx", :data-parentidx="parentIdx", :data-subidx="subIdx")
+                  span.menuName {{sub.name}}
+              template(v-if="!item.sub_button||(item.sub_button&&item.sub_button.length<5)")
+                li.listItem.addBtn(@click.stop.prevent="addSubMenu(item, parentIdx)")
+                  span.addIcon
+        li.listItem.addBtn(v-show="menu.length<3", :class="'size1of'+(menu.length+1)", @click.stop.prevent="addMenu")
+          span.addIcon
+
+  edit-box(:items="menu", :chkitem="edititem", :sortable="sortable", :parentidx="parentidx", :subidx="subidx", :reset.sync="reset", :chkmedia="chkmedia", :medialist="medialist")
+
+  div.btns
+    div.sortBtns
+      //button.sortBtn#sortBtn(@click="ableSort", v-show="menu.length>1", class="btn btn-default") 菜单排序
+      //button.sortComplete#sortComplete(@click="sortComplete", v-show="sortable", class="btn btn-default") 完成
+    div.actBtns
+      button.saveDate#saveDate(@click="updateData", class="btn btn-success") 保存并发布
+      //button.preView#preView(class="btn btn-default") 预览
+template(v-else, v-cloak)
+  article 请选择相应公众号进行管理菜单

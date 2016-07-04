@@ -1,0 +1,6 @@
+div.pageBar(v-if="pinfo.totalPage")
+  a.pItem.pHome(href="javascript:;", @click="home", v-if="!pinfo.firstPage") 首页
+  a.pItem.pPrev(href="javascript:;", @click="prev", v-if="!pinfo.firstPage") 上一页
+  //input.pNum(type="text", id="pageNum")
+  a.pItem.pNext(href="javascript:;", @click="next", v-if="!pinfo.lastPage") 下一页
+  a.pItem.pLast(href="javascript:;", @click="last", v-if="!pinfo.lastPage") 尾页

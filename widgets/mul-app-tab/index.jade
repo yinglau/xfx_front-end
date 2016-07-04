@@ -1,0 +1,7 @@
+div.mulApp
+  span.authorityTip 授权公众号
+  ul.authorityList
+    li.auhorityItem(v-for="item in applist", track-by="$index", @click="viewInfo(item.appid)", :class="[chkApp == item.appid ? 'selected':'']")
+      a(href="javascript:;") {{item.nick_name}}
+    li.auhorityItem
+      a(href="javascript:;", @click="access") +

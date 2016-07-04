@@ -1,0 +1,361 @@
+@import "/pages/common/glob";
+
+.actIcon{
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  background-image: url(icons.png?__sprite);
+  background-repeat: no-repeat;
+  &.edit{
+    background-position: 0 -5527px;
+  }
+  &.del{
+    background-position: 0 -4827px;
+  }
+  &.change{
+    background-position: 0 -5163px;
+  }
+}
+
+.newsSourceHead{
+  font-size: 14px;
+  span{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .newsSourceSort{
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    .grid, .list{
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin-right: 2px;
+    }
+    .grid{
+      background: url(grid.png?__sprite) no-repeat;
+      &.active{
+        background: url(grid_active.png?__sprite) no-repeat;
+      }
+    }
+    .list{
+      background: url(list.png?__sprite) no-repeat;
+      &.active{
+        background: url(list_active.png?__sprite) no-repeat;
+      }
+    }
+  }
+  .mulSelectBtn{
+    margin-top: 10px;
+    button{
+      margin-right: 10px;
+      outline: none;
+    }
+  }
+}
+.newsSourceMiddle{
+  //overflow-x: hidden;
+
+  .newsSourceList{
+    &.grid{
+      @include clearfix;
+      list-style: none;
+      margin: 20px 0 0 0;
+      padding: 0;
+      width: 948px;
+      //overflow: hidden;
+      li{
+        float: left;
+        padding: 0 15px;
+        border: 1px solid #e7e7eb;
+        margin: 0 20px 20px 0;
+        cursor: pointer;
+        width: 296px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        .newsCheck{
+          padding: 5px 0;
+          text-align: center;
+          border-bottom: 1px solid #e7e7eb;
+          margin: 0 -15px;
+          span{
+            margin-left: 8px;
+          }
+        }
+        .msgContent{
+
+          .msgTitle{
+            font-size: 16px;
+            word-wrap: break-word;
+            word-break: break-all;
+            margin: 0;
+            margin-top: 10px;
+          }
+          .msgDate{
+            font-size: 13px;
+            margin-top: 10px;
+            color: #666;
+          }
+          .msgThumb{
+            height: 160px;
+            margin-top: 10px;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .msgDesc{
+            font-size: 13px;
+            color: #666;
+            padding: 10px 0;
+          }
+        }
+        .msgActBtn{
+          background: #f4f4f4;
+          border-top: 1px solid #e7e7eb;
+          margin: 0 -15px;
+          @include clearfix;
+          span{
+            text-decoration: none;
+            display: block;
+            float: left;
+            height: 44px;
+            width: 50%;
+            text-align: center;
+            position: relative;
+            &:nth-child(1){
+              border-right: 1px solid #e7e7eb;
+            }
+            &:nth-child(2){
+              border-left: 1px solid #e7e7eb;
+            }
+
+            i{
+              display: inline-block;
+              position: absolute;
+              top: 50%;
+              margin-top: -9px;
+              width: 18px;
+              height: 18px;
+              background-image: url(icons.png?__sprite);
+              background-repeat: no-repeat;
+              &.msgEditBtn{
+                background-position: 0 -5527px;
+              }
+              &.msgDelBtn{
+                background-position: 0 -4827px;
+              }
+            }
+            &:hover{
+              .msgEditBtn{
+                background-position: 0 -5555px;
+              }
+              .msgDelBtn{
+                background-position: 0 -4855px;
+              }
+            }
+          }
+        }
+      }
+
+    }
+    &.list{
+      @include clearfix;
+      list-style: none;
+      margin: 10px 0;
+      padding: 0;
+      li{
+        border-top: 1px solid #e7e7eb;
+        padding: 15px 0;
+        &:last-child{
+          border-bottom: 1px solid #e7e7eb;
+        }
+      }
+      .msgActBtn{
+        float: right;
+        width: 100px;
+        text-align: right;
+        a{
+          color: #459ae9;
+          text-decoration: none;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+      .msgContent{
+        margin-right: 100px;
+
+        @include clearfix;
+        .msgThumb{
+          width: 100px;
+          height: 100px;
+          //overflow: hidden;
+          float: left;
+          background: blue;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+
+        }
+        .msgTitle{
+          margin-left: 110px;
+          margin-right: 110px;
+          a{
+            text-decoration: none;
+            color: #222;
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+        .msgDate{
+          float: right;
+          width: 100px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.sourceWrap{
+  @include clearfix;
+  font-size: 14px;
+  border: 1px solid #e7e7eb;
+  .sourceAside{
+    float: right;
+    width: 155px;
+    ul{
+      list-style: none;
+      padding: 0;
+    }
+    a{
+      text-decoration: none;
+      color: #222;
+      display: block;
+      height: 33px;
+      line-height: 33px;
+      &:hover, &.selected{
+        background: #f4f5f9;
+
+      }
+    }
+
+    .sourceMenuItem{
+
+      a{
+        padding: 0 20px;
+      }
+    }
+    .sourceSubMenu{
+      a{
+        padding: 0 40px;
+      }
+    }
+  }
+  .sourceMain{
+    //margin-right: 155px;
+    //border-right: 1px solid #e7e7eb;
+    .sourceHead{
+      padding: 10px 15px;
+      border-bottom: 1px solid #e7e7eb;
+    }
+    .sourceToolBar{
+      padding: 5px 15px;
+      background: #f4f5f9;
+      border-bottom: 1px solid #e7e7eb;
+      .checkLab, .fansActBtn{
+        display: inline-block;
+      }
+      .checkLab{
+        span{
+          margin-left: 5px;
+        }
+      }
+      .sourceActBtn{
+        margin-left: 20px;
+        button{
+          margin-right: 5px;
+          outline: none;
+        }
+      }
+    }
+    .sourceMiddle{
+      min-height: 350px;
+      padding: 15px;
+      //overflow-x: hidden;
+      .imgList{
+        @include clearfix;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 960px;
+        .imgItem{
+          float: left;
+          margin-right: 13px;
+          margin-bottom: 20px;
+          width: 170px;
+          border: 1px solid #e7e7eb;
+          overflow: hidden;
+          img{
+            width: 170px;
+            height: 170px;
+          }
+          .imgTitle{
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            display: block;
+            label{
+              cursor: pointer;
+            }
+            input, label span{
+              display: inline-block;
+              vertical-align: middle;
+            }
+            input{
+              margin-right: 5px;
+            }
+          }
+        }
+        .imgActBtn{
+          @include clearfix;
+          display: block;
+          background: #f4f5f9;
+          border-top: 1px solid #e7e7eb;
+          height: 30px;
+          line-height: 30px;
+          overflow: hidden;
+        }
+        .imgBtn{
+          display: inline-block;
+          float: left;
+          width: 33.3333%;
+          text-align: center;
+          cursor: pointer;
+          &:hover{
+            .edit{
+              background-position: 0 -5555px;
+            }
+            .change{
+              background-position: 0 -5191px;
+            }
+            .del{
+              background-position: 0 -4855px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .popModal{
+    min-width: 300px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, .1);
+  }
+}

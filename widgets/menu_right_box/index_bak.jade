@@ -1,0 +1,111 @@
+//- link(href="index.scss?__inline", rel="stylesheet")
+.menu_right_box
+  template(v-if="items == null || items.length == 0")
+    p 请添加菜单
+  template(v-else)
+    div.resetBox(v-show="reset")
+      p 请重新选择菜单编辑
+    div.editBox(v-if="!sortable&&!reset&&chkitem!=null")
+      div.menuHead
+        p.menuTit {{chkitem.name}}
+        a.menuDel(href="javascript:void(0);", @click="delItem()") 删除菜单
+      div.menuForm
+        form
+          div.formItem
+            p.formTip(v-if="chkitem.sub_button&&chkitem.sub_button.length>0") 已添加子菜单，仅可设置菜单名称。
+            div.itemLeft
+              span 菜单名称
+            div.itemRight
+              input(type="text", :value="chkitem.name", v-model="chkitem.name", lazy)
+              p.formTip 字数不超过4个汉字或8个字母
+          div.formItemContent(v-if="!chkitem.sub_button||!chkitem.sub_button.length")
+            //div.formItem
+            //    div.itemLeft
+            //      span 菜单内容
+            //    div.itemRight
+            //      div.radioGroup
+            //        input(type="radio", name="ctnType", value="news", v-model="chkitem.type")
+            //        span 发送信息
+            //      div.radioGroup
+            //        input(type="radio", name="ctnType", value="view", v-model="chkitem.type")
+            //        span 跳转网页
+            div.formItem
+              div.editCtnBox
+                //div(v-show="chkitem.type!=='other'")
+                div
+                  div.tabBox
+                    div.tabBar
+                      span.tabItem.tab_picmsg(data-tab="news")
+                        i.typeicon
+                        | 图文信息
+                      span.tabItem.tab_pic(data-tab="img")
+                        i.typeicon
+                        | 图片
+                      span.tabItem.tab_audio(data-tab="voice")
+                        i.typeicon
+                        | 语音
+                      span.tabItem.tab_video(data-tab="video")
+                        i.typeicon
+                        | 视频
+                      span.tabItem.tab_video(data-tab="view")
+                        //i.typeicon
+                        | 链接
+                    div.tabBlock
+                      div.blockItem#news
+                        template(v-if="chkmedia.type!='view_limited'&&chkmedia.data==null")
+                          div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('appmsg')")
+                            i.media_add_icon
+                            span 从媒体库中选择
+                          //div.media_cover.cover_right
+                          //  i.media_add_icon
+                          //  span 新建图文信息
+                        template(v-if="chkmedia.data!=null&&chkitem.type=='view_mimited")
+                          .msgContentBox
+                            .msgContent
+                              h4.msgTitle {{chkmedia.data.news_item[0].title}}
+                              p.msgDate {{chkmedia.data.create_time}}
+                              //.msgThumb(:style="background: url(chkitem.news_info.list[0].cover_url)")
+                              .msgThumb
+                                //img(:src="chkmedia.data.news_item[0].thumb_url.replace('?wx_fmt=jpeg', '')")
+                                img(:src="'http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl='+chkmedia.data.news_item[0].thumb_url")
+                              p.msgDesc {{chkmedia.data.news_item[0].digest}}
+                          a(href="javascript:;", class="delSetMsg", @click="delChkMedia") 删除
+                      div.blockItem#img
+                        template(v-if="chkmedia.type!='media_id'&&chkmedia.data==null")
+                          div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('apppic')")
+                            i.media_add_icon
+                            span 从媒体库中选择
+
+                          //div.media_cover.cover_right
+                          //  i.media_add_icon
+                          //  span 上传图片
+                        //template(v-if="chkitem.type=='img'&&chkitem.value!=''")
+                        template(v-if="chkmedia.data!=null&&chkmedia.type=='media_id'")
+                          div.imgBox
+                            img(:src="chkmedia.data.indexOf('https://') >= 0 || chkmedia.data.indexOf('http://') >= 0 ? 'http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl='+chkmedia.data : 'data:image/jpg;base64,'+chkmedia.data")
+                            a(href="javascript:;", class="delSetMsg", @click="delChkMedia") 删除
+                      div.blockItem#voice
+                        div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('appaudio')")
+                          i.media_add_icon
+                          span 从媒体库中选择
+                        //div.media_cover.cover_right
+                        //  i.media_add_icon
+                        //  span 新建语音
+                      div.blockItem#video
+                        div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('appvideo')")
+                          i.media_add_icon
+                          span 从媒体库中选择
+                        //div.media_cover.cover_right
+                        //  i.media_add_icon
+                        //  span 新建视频
+                      div.blockItem#view
+                        div.urlEdit
+                          p.urlEditTips 订阅者点击该子菜单会跳到以下链接
+                            form
+                              div.formItem
+                                div.itemLeft
+                                  span 页面地址
+                                div.itemRight.urlInput
+                                  input(type="text", disabled, placeholder="认证后可手动输入网址", :value="chkitem.url")
+                                  a(href="javascript:;", @click.stop.prevent="showAppMsgBox('appview')") 公众号图文信息中选择
+

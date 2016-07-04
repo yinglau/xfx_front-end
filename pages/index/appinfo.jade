@@ -1,0 +1,14 @@
+extends /pages/common/base
+
+block pageMain
+  //.appInfoWrap(v-cloak)
+  //  .headImg
+  //    img(:src="appinfo.head_img")
+  //  .othersInfo
+  //    p.appNickName 微信号昵称: {{appinfo.nick_name}}
+  //    p.appNickName 微信号ID: {{appinfo.id}}
+  //    p.appNickName 微信号验证情况: {{appinfo.verify_type_info=="0" ? "验证" : "未验证"}}
+  appview
+block append scripts
+  script(type="text/javascript").
+    require(["appinfo"])

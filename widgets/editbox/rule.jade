@@ -1,0 +1,88 @@
+//- link(rel="stylesheet", href="editbox.scss?__inline")
+
+button(class="btn btn-success", @click="addRules") 添加规则
+.ruleListWrap
+  .ruleListItem(v-for="(key,val) in rules", :class="[val.id ? '':'open']")
+    .ruleItemHead
+      span.ruleName 规则{{key+1}}:{{val.rule_name}}
+      //i.arrow.arrowDown
+      //i.arrow.arrowUp
+      span.ruleOpen 展开
+      span.ruleClose 关闭
+    .ruleAllShow
+      .ruleItemSection
+        .sectionLeft
+          span.inputTip 规则名
+          label.inputLabel
+            input.ruleInput(type="text", v-model="val.rule_name")
+            p.labelTip 规则名最多60个字
+      .ruleItemSection
+        .sectionHead
+          .sectionLeft
+            span.secLeftTip 关键字
+          .sectionRight
+            a.addKeyWord(href="javascript:;", :data-key="key", @click="addKeyWords") 添加关键字
+        .sectionMiddle(v-if="val.keyword_list_info!=''")
+          .itemBlock(v-for="(subkey,keyitem) in val.keyword_list_info.split(',')", track-by="$index")
+            span.keyName {{keyitem}}
+            span.itemActBar
+              //a 未全匹配
+              a.itemEdit(:data-esign="[key,subkey]", :data-sign="'editkey'+key+subkey" @click="editKeyWord")
+              a.itemDel(:data-dsign="[key,subkey]", @click="delKeyWord")
+      .ruleItemSection
+        .sectionHead
+          .sectionLeft
+            span.secLeftTip 回复
+          .sectionRight
+            span 回复全部
+        .secTabBar
+          span.secTabItem.tab_text(@click="showConfirm('text', 'add', [key,null])")
+            i.typeicon
+          span.secTabItem.tab_picmsg(@click="showConfirm('news', 'add', [key,null])")
+            i.typeicon
+          span.secTabItem.tab_pic(@click="showConfirm('image', 'add', [key,null])")
+            i.typeicon
+          span.secTabItem.tab_audio(@click="showConfirm('voice')")
+            i.typeicon
+          span.secTabItem.tab_video(@click="showConfirm('video')")
+            i.typeicon
+        .sectionMiddle
+          template(v-for="(subkey,reply) in val.reply_list_info", track-by="$index")
+            .itemBlock(v-if="reply.type=='news'")
+              div.itemLeft
+                a.itemThumb
+                  img(:src="'http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl='+reply.news_info.list[0].cover_url")
+                .itemInfo
+                  a.itemTitle [图文信息]{{reply.news_info.list[0].title}}
+                  a.itemDesc {{reply.news_info.list[0].digest}}
+              span.itemActBar
+                a.itemDel(@click="delReply([key,reply])")
+            .itemBlock(v-if="reply.type=='img'")
+              div.itemLeft
+                a.itemThumb
+                  img(src="#")
+                .itemInfo
+                  a.itemTitle [图片]
+              span.itemActBar
+                a.itemDel(@click="delReply([key,reply])")
+            .itemBlock(v-if="reply.type=='text'")
+              div.itemLeft
+                .itemInfo
+                  span.textTit {{reply.content}}
+              span.itemActBar
+                a.itemEdit(@click="showConfirm('text', 'edit', [key, subkey])")
+                a.itemDel(@click="delReply([key, reply])")
+      .ruleActiveBar
+        .ruleStat.
+          文字({{val.reply_list_info | countReply "text"}}),图片({{val.reply_list_info | countReply "img"}}),语音({{val.reply_list_info | countReply "voice"}}),视频({{val.reply_list_info | countReply "video"}}),图文({{val.reply_list_info | countReply "news"}})
+        .ruleActBtn
+          a(class="btn btn-success", href="javascript:void(0);", @click="saveRules(val)") 保存
+          a(class="btn btn-default", href="javascript:void(0);", @click="delRule(val)") 删除
+    .ruleSmallShow
+      .ruleSmallItem
+        span.itemLeft 关键词
+        .itemRight(v-if="val.keyword_list_info!=''")
+          span.keyWordLabel(v-for="keyword in val.keyword_list_info.split(',')", track-by="$index") {{keyword}}
+      .ruleSmallItem
+        span.itemLeft 回复
+        .itemRight {{val.reply_list_info | countReply}}条（ {{val.reply_list_info | countReply "text"}}条文字， {{val.reply_list_info | countReply "img"}}条图片， {{val.reply_list_info | countReply "voice"}}条语音， {{val.reply_list_info | countReply "video"}}条视频， {{val.reply_list_info | countReply "news"}}条图文）

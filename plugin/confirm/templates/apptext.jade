@@ -1,0 +1,25 @@
+div.confirmBox
+  div.confirmBoxTit 添加回复文字
+  <% if(obj){ %>
+  .textWrap
+    textarea.editContent#textContent <%= obj.content %>
+    .editFootToolbar
+      span.emojIcon
+      span.wordNum
+        | 还可以输入
+        span#wordNum 600
+        | 字
+        label.wordCount#wordCount 600
+  <% }else{ %>
+  .textWrap
+    textarea.editContent#textContent
+    .editFootToolbar
+      span.emojIcon
+      span.wordNum
+        | 还可以输入
+        span#wordNum 600
+        | 字
+        label.wordCount#wordCount 600
+  <% } %>
+
+

@@ -1,0 +1,496 @@
+@import "/pages/common/glob";
+
+
+.editComponent {
+  .tabBox {
+    border: 1px solid #e7e7eb;
+  }
+  .tabBar {
+    height: 38px;
+    border-bottom: 1px solid #e7e7eb;
+    line-height: 38px;
+    span {
+      display: inline-block;
+      height: 38px;
+      padding: 0 15px;
+      color: #8d8d8d;
+      cursor: pointer;
+      .typeicon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        background: url(editicon.png) no-repeat;
+      }
+      &.tab_text {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 0;
+        }
+      }
+      &.tab_pic {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -60px;
+        }
+      }
+      &.tab_audio {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -180px;
+        }
+      }
+      &.tab_video {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -120px;
+        }
+      }
+      &.selected, &:hover {
+
+        &.tab_text {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -30px;
+          }
+        }
+        &.tab_pic {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -90px;
+          }
+        }
+        &.tab_audio {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -210px;
+          }
+        }
+        &.tab_video {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -150px;
+          }
+        }
+      }
+    }
+  }
+  .tabBlock {
+    .blockItem {
+      display: none;
+      padding: 20px;
+      &:first-child {
+        display: block;
+      }
+      @include clearfix;
+    }
+    .media_cover {
+      width: 47%;
+      border: 2px dotted #d9dadc;
+      height: 147px;
+      cursor: pointer;
+      &.cover_left {
+        float: left;
+      }
+      &.cover_right {
+        float: right;
+      }
+      .media_add_icon {
+        background: url(icons.png) 0 -2960px no-repeat;
+        display: block;
+        width: 36px;
+        height: 36px;
+        margin: 40px auto auto auto;
+      }
+      span {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        color: #8d8d8d;
+        margin-top: 5px;
+      }
+      &:hover {
+        border-color: #ccc;
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .editBlock {
+      margin: -20px;
+      .editContent {
+        resize: none;
+        height: 250px;
+        width: 100%;
+        display: block;
+        overflow-y: auto;
+        outline: none;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 20px;
+        border: none;
+        line-height: 18px;
+      }
+      .editFootToolbar {
+        @include clearfix;
+        padding: 10px 20px;
+        border-top: 1px solid #e7e7eb;
+        overflow: hidden;
+        .wordNum {
+          display: inline-block;
+          color: #8d8d8d;
+          float: right;
+          font-size: 14px;
+        }
+        .wordCount {
+          display: none;
+        }
+      }
+    }
+
+  }
+  .actButton {
+    margin-top: 20px;
+    button {
+      width: 100px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.ruleListWrap{
+  margin-top: 20px;
+  .ruleListItem{
+    border: 1px solid #e7e7eb;
+    font-size: 14px;
+    margin-bottom: 20px;
+    .ruleItemHead{
+      padding: 0 10px;
+      height: 40px;
+      line-height: 40px;
+      background: #f4f5f9;
+      border-bottom: 1px solid #e7e7eb;
+      cursor: pointer;
+      position: relative;
+    }
+    .arrow{
+      display: inline-block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: 10px;
+      top: 16px;
+    }
+    .arrowDown{
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #c6c6c6;
+    }
+    .arrowUp{
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #c6c6c6;
+      vertical-align: top;
+      display: none;
+    }
+    .ruleOpen, .ruleClose{
+      display: inline-block;
+      position: absolute;
+      right: 10px;
+      text-decoration: underline;
+      color: #2a6496;
+      top: 0px;
+    }
+    .ruleOpen{
+    }
+    .ruleClose{
+      display: none;
+    }
+    .ruleItemSection{
+      padding: 10px 15px;
+      &:not(:last-child){
+        border-bottom: 1px solid #e7e7eb;
+      }
+      @include clearfix;
+      .sectionLeft{
+        float: left;
+      }
+      .sectionRight{
+        float: right;
+      }
+      .inputTip{
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 7px;
+      }
+      .ruleInput{
+        outline: none;
+        width: 180px;
+        height: 30px;
+        padding: 0 8px;
+        line-height: 30px;
+        display: block;
+      }
+      .inputLabel{
+        display: inline-block;
+        margin-left: 15px;
+        .labelTip{
+          color: #8d8d8d;
+          margin-top: 5px;
+        }
+      }
+      .secLeftTip{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      a{
+        color: #459ae9;
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .sectionHead{
+        border-bottom: 1px solid #e7e7eb;
+        @include clearfix;
+        margin: -15px;
+        padding: 15px;
+      }
+      .secTabBar{
+        margin: 15px -15px;
+        padding: 10px 20px;
+        border-bottom: 1px solid #e7e7eb;
+        .secTabItem {
+          display: inline-block;
+          color: #8d8d8d;
+          cursor: pointer;
+          vertical-align: top;
+          margin: 0 8px;
+          .typeicon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background: url(editicon.png) no-repeat;
+          }
+          &.tab_text {
+            .typeicon {
+              vertical-align: middle;
+              background-position: 0 0;
+            }
+          }
+          &.tab_picmsg {
+            .typeicon {
+              vertical-align: middle;
+              background-position: 0 -240px;
+            }
+          }
+          &.tab_pic {
+            .typeicon {
+              vertical-align: middle;
+              background-position: 0 -60px;
+            }
+          }
+          &.tab_audio {
+            .typeicon {
+              vertical-align: middle;
+              background-position: 0 -180px;
+            }
+          }
+          &.tab_video {
+            .typeicon {
+              vertical-align: middle;
+              background-position: 0 -120px;
+            }
+          }
+          &:hover {
+            &.tab_text {
+              .typeicon {
+                vertical-align: middle;
+                background-position: 0 -30px;
+              }
+            }
+            &.tab_picmsg {
+              .typeicon {
+                vertical-align: middle;
+                background-position: 0 -270px;
+              }
+            }
+            &.tab_pic {
+              .typeicon {
+                vertical-align: middle;
+                background-position: 0 -90px;
+              }
+            }
+            &.tab_audio {
+              .typeicon {
+                vertical-align: middle;
+                background-position: 0 -210px;
+              }
+            }
+            &.tab_video {
+              .typeicon {
+                vertical-align: middle;
+                background-position: 0 -150px;
+              }
+            }
+          }
+        }
+      }
+      .sectionMiddle{
+        padding: 20px 20px 0 20px;
+        .itemBlock{
+          @include clearfix;
+          padding: 15px 0;
+          margin-right: -35px;
+          &:not(:last-child){
+            border-bottom: 1px solid #e7e7eb;
+          }
+          .itemActBar{
+            display: inline-block;
+            float: right;
+            margin-right: 20px;
+
+            .itemEdit, .itemDel{
+              width: 14px;
+              height: 14px;
+              margin-left: 15px;
+            }
+            .itemEdit{
+              background: url(icons.png) no-repeat 0 -3686px;
+              &:hover{
+                background: url(icons.png) no-repeat 0 -3710px;
+              }
+            }
+            .itemDel{
+              background: url(icons.png) no-repeat 0 -3734px;
+              &:hover{
+                background: url(icons.png) no-repeat 0 -3758px;
+              }
+            }
+          }
+          .itemLeft{
+            display: inline-block;
+            vertical-align: top;
+            .itemThumb{
+              width: 80px;
+              height: 80px;
+              display: inline-block;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .itemInfo{
+              margin-left: 15px;
+              display: inline-block;
+              vertical-align: top;
+              .itemDesc, .itemTitle{
+                display: block;
+                color: #222;
+              }
+              .itemDesc{
+                margin-top: 10px;
+              }
+              .textTit{
+                margin-left: -10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .ruleActiveBar{
+      height: 50px;
+      line-height: 50px;
+      padding: 0 15px;
+      background: #f4f5f9;
+      @include clearfix;
+      .ruleStat{
+        color: #8d8d8d;
+        display: inline-block;
+      }
+      .ruleActBtn{
+        display: inline-block;
+        float: right;
+        a{
+          text-decoration: none;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .ruleAllShow{
+      display: none;
+    }
+    .ruleSmallShow{
+      padding: 15px;
+      .ruleSmallItem{
+        @include clearfix;
+        padding: 10px 0;
+        .itemLeft{
+          float: left;
+          width: 100px;
+          display: inline-block;
+        }
+        .itemRight{
+          float: left;
+          margin-left: 20px;
+          .keyWordLabel{
+            display: inline-block;
+            background: #e5e7ec;
+            vertical-align: top;
+            margin-right: 8px;
+            padding: 4px 6px;
+            position: relative;
+            top: -4px;
+          }
+        }
+      }
+    }
+
+    &.open{
+      .ruleAllShow{
+        display: block;
+      }
+      .ruleSmallShow{
+        display: none;
+      }
+      .arrowDown{
+        display: none;
+      }
+      .arrowUp{
+        display: block;
+      }
+      .ruleOpen{
+        display: none;
+      }
+      .ruleClose{
+        display: block;
+      }
+    }
+  }
+
+}
+
+.imgBox{
+  width: 180px;
+  height: 140px;
+  display: inline-block;
+  img{
+    width: 140px;
+    height: 140px;
+  }
+  a{
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+}
+

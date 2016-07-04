@@ -1,0 +1,19 @@
+div.confirmBox
+  div.confirmBoxTit 请选择视频
+  .confirmHeader
+    //.createVideo
+      button(type="button", class="btn btn-success") 新建视频
+  .audioListWrap
+    div#videoBox
+      ul
+
+        <% _.each(obj, function(v, k){ %>
+        <% var item = JSON.parse(v.url); %>
+        //<% var video = "<iframe src='"+item.down_url+"' width='260' height='140'></iframe>" %>
+        li.videoItem
+          p.videoName <%=item.title%>
+          p.videoDate date
+          //video(src="<%item.down_url%>")
+          //<%=video%>
+          p.videoDesc <%=item.description%>
+        <% }); %>

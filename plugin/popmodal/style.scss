@@ -1,0 +1,70 @@
+@import "/pages/common/glob";
+
+.addKeyWordForm, .editSourceNameForm{
+  input{
+    display: inline-block;
+    width: 200px;
+    height: 35px;
+    padding: 5px 8px;
+    outline: none;
+  }
+  button{
+    margin-left: 10px;
+  }
+}
+.warnWrap{
+  p{
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  button{
+    margin: 0 10px;
+  }
+}
+.addGroupForm{
+  .groupInputs{
+    max-height: 230px;
+    overflow-y: auto;
+    label{
+      display: inline-block;
+      width: 32%;
+      overflow: hidden;
+      margin: 5px 0;
+      input, span{
+        display: inline-block;
+      }
+      input{
+        margin-right: 10px;
+      }
+    }
+  }
+
+}
+
+.btnCenterGroup{
+  text-align: center;
+  margin-top: 10px;
+  button{
+    margin: 0 8px;
+  }
+}
+
+.editRemarkForm, .editGroupNameForm{
+  input{
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    padding: 5px 8px;
+    outline: none;
+    margin-top: 10px;
+  }
+}
+
+.warnTips{
+  line-height: 130%;
+}
+
+.popTit{
+  margin-bottom: 10px;
+  padding: 0;
+}

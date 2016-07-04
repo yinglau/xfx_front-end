@@ -1,0 +1,117 @@
+@import "glob";
+
+body{
+    color: #222;
+    background: #f5f5f5;
+}
+ul, p, dt, dd, dl{
+    margin: 0;
+}
+[v-cloak] {
+    display: none;
+}
+
+.pageHead{
+    height: 70px;
+    border-bottom: 2px solid #35A9A9;
+    box-shadow: 0 2px 3px #d9dadc;
+    background: #fff;
+    min-width: 1200px;
+    margin-bottom: 10px;
+}
+.authorityWrap{
+    width: 1200px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    font-size: 14px;
+    border: 1px solid #d9dadc;
+    border-bottom: none;
+    padding: 20px 20px 20px 220px;
+
+}
+.pageMainHead{
+    overflow: hidden;
+}
+.pageContainer{
+    width: 1200px;
+    margin: 0 auto 40px auto;
+    background: #fff;
+    border: 1px solid #d9dadc;
+    @include clearfix;
+    .pageAside{
+        width: 200px;
+        float: left;
+        padding: 20px 0;
+        font-size: 14px;
+        .navHead{
+            padding: 10px 40px;
+        }
+        .navItem{
+            a{
+                display: block;
+                padding: 10px 60px;
+                text-decoration: none;
+                color: #222;
+                &:hover{
+                    background: #f4f5f9;
+                }
+            }
+            &.selected{
+                a{
+                    background: #44b549;
+                    color: #fff;
+                }
+            }
+
+        }
+    }
+    .pageMain{
+        margin-left: 200px;
+        border-left: 1px solid #e7e7eb;
+        min-height: 550px;
+        //overflow: hidden;
+        z-index: 999;
+    }
+}
+.pageFoot{
+    background: #35A9A9;
+    height: 60px;
+    text-align: center;
+    min-width: 1200px;
+    .footNav{
+        @include clearfix;
+        font-size: 12px;
+        list-style: none;
+        padding: 25px 0 0 0;
+        font-family: "宋体";
+        display: inline-block;
+        li{
+            float: left;
+            &:not(:last-child){
+                border-right: 1px solid #fff;
+            }
+            padding: 0 10px;
+            color: #fff;
+        }
+        .footNavItem a{
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+.infoPrimary, .infoWarning, .infoDanger{
+    padding: 15px 20px;
+    font-size: 14px;
+}
+.infoPrimary{
+    background: #337ab7;
+    color: #fff;
+}
+.infoWarning{
+    background: #fcf8e3;
+}
+.infoDanger{
+    background: #f2dede;
+}
+

@@ -1,0 +1,27 @@
+{
+  "button":[
+    {
+      "type":"view",
+      "name":"百度",
+      "url":"http://www.baidu.com"
+    },
+    {
+      "name":"菜单",
+      "sub_button":[
+        {
+          "type":"view",
+          "name":"搜索",
+          "url":"http://www.soso.com/"
+        },
+        {
+          "type":"news",
+          "name":"图文",
+          "media_id":"TKTl2_UyPuQYHzI9m8v2LwB15h0StxK-CljPpvec2Ww"
+        },
+        {
+          "type":"image",
+          "name":"图片",
+          "media":"s8-NxaD5VkVeNuaZSQX6wc-L_riBVA4llbXv0zbth_8"
+        }]
+    }]
+}

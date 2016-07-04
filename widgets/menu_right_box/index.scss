@@ -1,0 +1,277 @@
+@import "/pages/common/glob";
+
+.menu_right_box {
+  display: inline-block;
+  float: right;
+  width: 600px;
+  .editBox {
+    border: 1px solid #e7e7eb;
+    padding: 10px 20px;
+    height: 500px;
+    vertical-align: top;
+    background: #f4f5f9;
+  }
+  .resetBox {
+    display: inline-block;
+    margin-left: 40px;
+    width: 600px;
+    p {
+      font-size: 14px;
+    }
+  }
+  .menuHead {
+    @include clearfix;
+    border-bottom: 1px solid #e7e7eb;
+    .menuTit {
+      padding: 9px 0;
+      float: left;
+    }
+    .menuDel {
+      float: right;
+      display: inline-block;
+      padding: 9px 0;
+      color: #459ae9;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  .menuForm {
+    padding: 10px 0;
+    input[type="text"] {
+      width: 250px;
+      height: 30px;
+      padding: 0 5px;
+      border: 1px solid #ccc;
+
+      outline: 0;
+      display: block;
+    }
+  }
+  .itemLeft, .itemRight {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .itemLeft {
+    padding-top: 8px;
+  }
+  .itemRight {
+    margin-left: 20px;
+    vertical-align: bottom;
+  }
+  .formTip {
+    margin: 8px 0;
+    color: #8d8d8d;
+  }
+  .formItemContent {
+    margin-top: 30px;
+  }
+  .radioGroup {
+    display: inline-block;
+    margin-right: 20px;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .editCtnBox {
+    margin-top: 20px;
+    background: #fff;
+  }
+  .tabBox {
+    border: 1px solid #e7e7eb;
+  }
+  .tabBar {
+    height: 38px;
+    border-bottom: 1px solid #e7e7eb;
+    line-height: 38px;
+    span {
+      display: inline-block;
+      height: 38px;
+      padding: 0 15px;
+      color: #8d8d8d;
+      cursor: pointer;
+      .typeicon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        background: url(editicon.png) no-repeat;
+      }
+      &.tab_picmsg {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -240px;
+        }
+      }
+      &.tab_pic {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -60px;
+        }
+      }
+      &.tab_audio {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -180px;
+        }
+      }
+      &.tab_video {
+        .typeicon {
+          vertical-align: middle;
+          background-position: 0 -120px;
+        }
+      }
+      &.selected, &:hover {
+
+        &.tab_picmsg {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -270px;
+          }
+        }
+        &.tab_pic {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -90px;
+          }
+        }
+        &.tab_audio {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -210px;
+          }
+        }
+        &.tab_video {
+          .typeicon {
+            vertical-align: middle;
+            background-position: 0 -150px;
+          }
+        }
+      }
+    }
+  }
+  .tabBlock {
+    .blockItem {
+      display: none;
+      padding: 20px;
+      @include clearfix;
+    }
+    .media_cover {
+      width: 47%;
+      border: 2px dotted #d9dadc;
+      height: 147px;
+      cursor: pointer;
+      &.cover_left {
+        float: left;
+      }
+      &.cover_right {
+        float: right;
+      }
+      .media_add_icon {
+        background: url(icons.png) 0 -2960px no-repeat;
+        display: block;
+        width: 36px;
+        height: 36px;
+        margin: 40px auto auto auto;
+      }
+      span {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        color: #8d8d8d;
+        margin-top: 5px;
+      }
+      &:hover {
+        border-color: #ccc;
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .urlEdit {
+    padding: 20px;
+  }
+  .urlEditTips {
+    color: #8d8d8d;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .urlInput {
+
+    font-size: 14px;
+    input[disabled] {
+      background: #eee;
+    }
+
+    a {
+      color: #459ae9;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+      outline: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .msgContentBox{
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+  }
+  .msgContent{
+    width: 296px;
+    .msgTitle{
+      font-size: 16px;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin: 0;
+      margin-top: 10px;
+    }
+    .msgDate{
+      font-size: 13px;
+      margin-top: 10px;
+      color: #666;
+    }
+    .msgThumb{
+      height: 160px;
+      overflow: hidden;
+      margin-top: 10px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .msgDesc{
+      font-size: 13px;
+      color: #666;
+      padding: 10px 0;
+    }
+  }
+  .delSetMsg{
+    color: #459ae9;
+    text-decoration: none;
+    vertical-align: bottom;
+    margin-left: 10px;
+    font-size: 14px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .imgBox{
+    height: 100px;
+    img{
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+    }
+    .delSetMsg{
+      display: inline-block;
+    }
+  }
+}

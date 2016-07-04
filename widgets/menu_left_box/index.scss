@@ -1,0 +1,128 @@
+@import "/pages/common/glob";
+
+.menuWrap{
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+.menuBox{
+  @include clearfix;
+  width: 320px;
+  height: 500px;
+  box-sizing: border-box;
+  border: 1px solid #e7e7eb;
+  border-bottom: 0;
+}
+.menuTop{
+  height: 64px;
+  background: url(menutopbg.png) no-repeat;
+}
+.menuList{
+  border: 1px solid #e7e7eb;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding-left: 43px;
+  list-style: none;
+  width: 320px;
+  height: 50px;
+  line-height: 50px;
+  background: url(menubg.png) no-repeat;
+  position: relative;
+  left: -1px;
+  top: 385px;
+  width: 320px;
+}
+.listItem{
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  text-align: center;
+  color: #616161;
+  border: 1px solid #e7e7eb;
+  -webkit-box-sizing: border-box;
+  height: 48px;
+  cursor: pointer;
+  background: #fafafa;
+
+}
+.addIcon{
+  width: 14px;
+  height: 14px;
+  background: red;
+  display: inline-block;
+  background: url(menuicons.png) no-repeat 0 0;
+}
+.size1of1{
+  width: 100%;
+}
+.size1of2{
+  width: 50%;
+}
+.size1of3, .size1of4{
+  width: 33.33%;
+}
+.sort{
+  .dragItem:before{
+    display: inline-block;
+    content: " ";
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    background: url(icons.png) no-repeat 0 -5809px;
+  }
+  .itemAcitve{
+    border: 0;
+  }
+}
+.itemActive{
+  border: 1px solid #3e999f;
+
+}
+
+.subMenuList{
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  display: none;
+  .listItem{
+    float: none;
+  }
+}
+.selected{
+  .subMenuList{
+    display: block;
+  }
+}
+
+
+
+.btns{
+  margin-top: 20px;
+  button{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .sortBtns{
+    display: inline-block;
+    width:320px;
+  }
+  .actBtns{
+    display: inline-block;
+    width: 400px;
+    margin-left: 20px;
+    button{
+      margin-right: 20px;
+    }
+  }
+}
+

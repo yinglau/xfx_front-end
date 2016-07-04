@@ -1,0 +1,19 @@
+div.confirmBox
+  div.confirmBoxTit 选择图片
+  .confirmHeader
+    .uploadBox
+      //span 大小不超过5M，已开启图片水印
+      //button(type="button", class="btn btn-success") 本地上传
+  .picListWrap
+    ul.picList#dataList
+      <% _.each(obj, function(item, index){ %>
+      <% var img = '<img src="'+item.local_url+'" />'; %>
+      li.picItem
+        span.dIndex(style="display: none;", id="dIndex") <%=index%>
+        span.mediaId(style="display: none;", id="mediaId") <%=item.media_id%>
+        label.picLabel
+          <%=img%>
+        p.picTit <%=item.media_name%>
+        span.picMask
+          i.picSelectedCard
+      <% }); %>

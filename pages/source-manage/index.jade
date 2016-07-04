@@ -1,0 +1,19 @@
+extends /pages/common/base
+
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 素材管理
+      button(type="button", @click="synchMaterial", class="btn btn-info synchMaterial") 同步素材
+      .pageMainHeadTabBar
+        a.headTabItem.selected(href="index.html") 图文信息
+        a.headTabItem(href="img.html") 图片
+        a.headTabItem(href="#") 语音
+        a.headTabItem(href="#") 视频
+    .pageMainMiddle#newsBox
+      news-box
+  template(v-else)
+    applist(type="material")
+
+  script(type="text/javascript").
+    require(["index"]);

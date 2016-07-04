@@ -1,0 +1,21 @@
+template(v-if="applist.length>0", v-cloak)
+  div.appListBox
+    ul
+      li(v-for="item in applist")
+        a(href="javascript:;", @click="viewInfo(item.appid)")
+          .headImg
+            img(:src="item.head_img")
+        p.appName {{item.nick_name}}
+        p.appItem(v-if="type=='material'") 总素材数: {{item.total_source}}
+        p.appItem(v-if="type=='wxuser'") 总用户数: {{item.total_user}}
+        template(v-if="type=='replymsg'")
+          p.appItem {{item.is_set_concern ? "已设置了关注回复" : "未设置关注回复"}}
+          p.appItem {{item.is_set_keyword ? "已设置了关键词回复" : "未设置关键词回复"}}
+          p.appItem {{item.is_set_msg ? "已设置了消息回复" : "未设置消息回复"}}
+        template(v-if="type=='qrcode'")
+          p.appItem 已生成{{item.count}}个二维码
+
+template(v-else, v-cloak)
+  //div.appEmptyMsg
+  //  p 请添加授权公众号
+  .infoPrimary 请添加授权公众号

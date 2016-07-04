@@ -1,0 +1,21 @@
+.headNavBar{
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  .userInfoBox{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    font-size: 14px;
+    .username, .logout{
+      display: inline-block;
+      vertical-align: middle;
+      color: #222;
+      text-decoration: none;
+    }
+    .username{
+      margin-right: 10px;
+    }
+  }
+
+}

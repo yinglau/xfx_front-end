@@ -1,0 +1,34 @@
+.sourceWrap
+  //.sourceAside
+  //  ul.sourceMenu
+  //    li.sourceMenuItem
+  //      a(href="#") 未分组(10)
+  //    li.sourceMenuItem
+  //      a(href="#") 微信小店(20)
+  //    li.sourceMenuItem
+  //      a(href="#") 新建分组
+  .sourceMain
+    .sourceHead
+      span 全部图片
+    .sourceToolBar
+      label.checkLab
+        input(type="checkbox", class="js_chkAllItem", v-model="chkAllItem")
+        span 全选
+      span.sourceActBtn
+        //button(class="btn btn-default", type="button", :disabled="!chkItemInput.length") 移动分组
+        button(class="btn btn-default", type="button", :disabled="!chkItemInput.length", data-delitem="check", @click="delMulItem") 删除
+    .sourceMiddle
+      ul.imgList
+        li.imgItem(v-for="(key,item) in imgList")
+          img(:src="item.local_url")
+          span.imgTitle
+            label
+              input(type="checkbox", class="js_checkImgItem", :checked="chkAllItem", :value="item.media_id", v-model="chkItemInput")
+              span {{item.media_name}}
+          span.imgActBtn
+            span.imgBtn
+              i.actIcon.edit(@click="editSource", :data-editkey="item.media_id")
+            span.imgBtn
+              i.actIcon.change
+            span.imgBtn
+              i.actIcon.del(@click.stop.prevent="delMediaItem(item, $event)", :data-delkey="item.media_id")

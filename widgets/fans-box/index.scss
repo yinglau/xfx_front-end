@@ -1,0 +1,180 @@
+@import "/pages/common/glob";
+.fansWrap{
+  @include clearfix;
+  font-size: 14px;
+  border: 1px solid #e7e7eb;
+  .addGroup{
+    padding: 10px;
+    border-bottom: 1px solid #e7e7eb;
+    text-align: right;
+    button{
+      padding: 2px 10px;
+      outline: none;
+      .plusIcon{
+        font-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        margin-right: 5px;
+      }
+    }
+
+  }
+  .fansAside{
+    float: right;
+    width: 210px;
+    margin-bottom: 10px;
+    //border-left: 1px solid #e7e7eb;
+    ul{
+      list-style: none;
+      padding: 0;
+    }
+    a{
+      font-size: 13px;
+      text-decoration: none;
+      color: #222;
+      display: block;
+      height: 33px;
+      line-height: 33px;
+      &:hover, &.selected{
+        background: #f4f5f9;
+
+      }
+    }
+
+    .fansMenuItem{
+      border-bottom: 1px solid #e7e7eb;
+      a{
+        padding: 0 20px;
+      }
+    }
+    .fansSubMenu{
+      a{
+        padding: 0 40px;
+      }
+    }
+  }
+  .fansMain{
+    margin-right: 210px;
+    border-right: 1px solid #e7e7eb;
+    overflow: hidden;
+    min-height: 600px;
+    .emptyResultBox{
+      text-align: center;
+      position: relative;
+      padding: 200px;
+      color: #8d8d8d;
+      a{
+        color: #459ae9;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .fansHead{
+      padding: 10px 15px;
+      border-bottom: 1px solid #e7e7eb;
+      span{
+        display: inline-block;
+      }
+      .groupActBtns{
+        margin-left: 10px;
+        a{
+          color: #459ae9;
+          text-decoration: none;
+          margin-right: 8px;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .fansToolBar{
+      padding: 5px 15px;
+      background: #f4f5f9;
+      border-bottom: 1px solid #e7e7eb;
+      .checkLab, .fansActBtn{
+        display: inline-block;
+      }
+      .checkLab{
+        span{
+          margin-left: 5px;
+        }
+      }
+      .fansActBtn{
+        margin-left: 20px;
+        button{
+          margin-right: 5px;
+          outline: none;
+        }
+      }
+    }
+    .fansItem{
+      @include clearfix;
+      padding: 10px 15px;
+      &:not(:last-child){
+        border-bottom: 1px solid #e7e7eb;
+      }
+      input, .fansThumb, .fansInfo{
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+      }
+      .editNote{
+        float: right;
+        outline: none;
+        position: relative;
+        top: 8px;
+      }
+      .fansName{
+        color: #222;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .fansThumb{
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .fansTag{
+        margin-top: 8px;
+        .arrowDown{
+          display: inline-block;
+          border-top: 5px solid #c6c6c6;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          vertical-align: middle;
+          cursor: pointer;
+          margin-left: 6px;
+          &:hover{
+            border-top-color: #888;
+          }
+        }
+        a{
+          color: #8d8d8d;
+          text-decoration: none;
+          margin-right: 5px;
+
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+
+    }
+  }
+
+}
+[data-ele=addgroup] + .popModal{
+  min-width: 300px;
+}
+[data-ele=addToGroup] + .popModal{
+  min-width: 400px;
+}

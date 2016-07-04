@@ -1,0 +1,13 @@
+html
+  head
+  body
+    script(type="text/javascript", src="/libs/require.js")
+    script(type="text/javascript").
+      require(["/pages/common/glob"], function(comjs){
+        if (comjs.getLocalItem("username")) {
+          location.href = "/pages/index/index.html";
+        } else {
+          location.href = "/pages/user/login.html";
+        }
+      });
+

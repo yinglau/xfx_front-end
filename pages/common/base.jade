@@ -1,0 +1,38 @@
+- var libs = "/libs/"
+- var comp = "/components/"
+doctype html
+html
+  head
+    block head
+      include head
+      block title
+        title 标题
+      link(rel="stylesheet", href="/pages/common/reset.scss")
+      link(rel="stylesheet", href="/widgets/common/widgets.scss")
+      link(rel="stylesheet", href="/plugin/common/plugin.scss")
+
+      script(src=libs+"require.js")
+  body
+    block body
+      div#common
+        div.pageHead
+          page-header(:username="username")
+        .authorityWrap
+          mul-app-tab(:username="username")
+
+      div.pageContainer
+        div.pageAside#sideBar
+
+        div.pageMain#main
+          block pageMain
+      div.pageFoot
+        ul.footNav
+          li.footNavItem
+            a(href="#") 关于直通社
+          li.copyright
+            span Copyright © 2012-2016 Zhitongshe. All Rights Reserved.
+    block scripts
+      script.
+        require(["/pages/common/base"]);
+
+

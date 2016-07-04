@@ -1,0 +1,22 @@
+extends ../common/base
+block append head
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 自动回复
+    .pageMainMiddle
+      template(v-if="!isOpenReplyStatus||isOpenReplyStatus==null", v-cloak)
+        .replyActBtnGroup
+          a.selected(href="index.html") 被添加自动回复
+          a(href="msg-auto-reply.html") 消息自动回复
+          a(href="keyword-auto-reply.html") 关键词自动回复
+        .replyBox
+          edit-box(type="subscribe_reply")
+      template(v-else, v-cloak)
+        div.bgWarning 你尚未开启自动回复功能，请去公众后台开启!
+  template(v-else)
+    applist(type="replymsg")
+  .pageMainFoot
+block prepend scripts
+  script(type="text/javascript").
+    require(["index"])

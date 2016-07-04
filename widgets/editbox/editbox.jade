@@ -1,0 +1,66 @@
+//- link(href="editbox.scss?__inline", rel="stylesheet")
+script(type="text/template", id="imgTemp")
+  <% var img = "<img src='"+obj.local_url+"' />" %>
+  div.imgBox#imgBox
+    <%=img%>
+    //img(src="<%=obj%>")
+    //div <%=obj%>
+    a(href="javascript:;", id="delMedia") 删除
+
+.editComponent
+  input(type="hidden", id="mediaId")
+  div.tabBox
+    div.tabBar
+      span.tabItem.tab_text.selected(data-tab="text")
+        i.typeicon
+        | 文字
+      span.tabItem.tab_pic(data-tab="pic")
+        i.typeicon
+        | 图片
+      span.tabItem.tab_audio(data-tab="audio")
+        i.typeicon
+        | 语音
+      span.tabItem.tab_video(data-tab="video")
+        i.typeicon
+        | 视频
+
+    div.tabBlock
+      div.blockItem(data-block="text")
+        .editBlock
+          textarea.editContent#editContent {{data[0].content_type == "text" ? data[0].content_text : ""}}
+          .editFootToolbar
+            span.emojIcon
+            span.wordNum
+              | 还可以输入
+              span#wordNum 600
+              | 字
+              label.wordCount#wordCount 600
+      div.blockItem#pic(data-block="pic")
+        template(v-if="data.length ==0 || data[0].content_type!='img' || data[0].content_text==''")
+          div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('apppic')", id="addPic")
+            i.media_add_icon
+            span 从媒体库中选择
+        //div.media_cover.cover_right
+        //  i.media_add_icon
+        //  span 上传图片
+      div.blockItem(data-block="audio")
+        div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('appaudio')")
+          i.media_add_icon
+          span 从媒体库中选择
+        //div.media_cover.cover_right
+        //  i.media_add_icon
+        //  span 新建语音
+      div.blockItem(data-block="video")
+        div.media_cover.cover_left(@click.stop.prevent="showAppMsgBox('appvideo')")
+          i.media_add_icon
+          span 从媒体库中选择
+        //div.media_cover.cover_right
+        //  i.media_add_icon
+        //  span 新建视频
+
+
+
+  .actButton
+    button(class="btn btn-success", id="js_save", type="button", @click="saveDate") 保存
+    button(class="btn btn-default", id="js_del", type="button", @click="delDate", v-if="data[0]") 删除回复
+    button(class="btn btn-default", id="js_del", type="button", @click="delDate", disabled, v-else) 删除回复

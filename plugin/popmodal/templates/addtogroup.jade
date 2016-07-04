@@ -1,0 +1,18 @@
+.addGroupForm
+  .groupInputs#groupInputs
+    <% _.each(obj.groupList, function(v, k){ %>
+    <% if(_.contains(obj.ugids, v.id)){ %>
+
+    <% var input="<input type='checkbox' class='js_selecteGroup' checked='checked' value='"+v.id+"' data-gname='"+v.name+"'>" %>
+    <% }else{ %>
+
+    <% var input="<input type='checkbox' class='js_selecteGroup' value='"+v.id+"' data-gname='"+v.name+"'>" %>
+    <% } %>
+    label
+      //input(type="checkbox", class="js_selectGourp", value="<%=v.id%>")
+      <%=input%>
+      span <%= v.name %>
+    <% }); %>
+  .btnCenterGroup
+    button(class="btn btn-success", data-popModalBut="ok") 确定
+    button(class="btn btn-default", data-popModalBut="cancel") 取消

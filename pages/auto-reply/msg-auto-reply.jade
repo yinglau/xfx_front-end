@@ -1,0 +1,19 @@
+extends ../common/base
+block append head
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 自动回复
+    .pageMainMiddle
+      .replyActBtnGroup
+        a(href="index.html") 被添加自动回复
+        a.selected(href="msg-auto-reply.html") 消息自动回复
+        a(href="keyword-auto-reply.html") 关键词自动回复
+      .replyBox#eidtBox
+        edit-box(type="msg_auto_reply")
+  template(v-else)
+    applist(type="replymsg")
+  .pageMainFoot
+block append scripts
+  script(type="text/javascript").
+    require(["index"])

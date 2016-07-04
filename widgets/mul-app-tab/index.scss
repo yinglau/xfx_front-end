@@ -1,0 +1,39 @@
+@import "/pages/common/glob";
+.mulApp{
+  .authorityTip{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .authorityList{
+    @include clearfix;
+    margin: 0 0 0 10px;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    .auhorityItem{
+      float: left;
+      border: 1px solid #e7e7eb;
+      background: #fff;
+      &:not(:first-child){
+        margin-left: -1px;
+      }
+      a{
+        color: #222;
+        text-decoration: none;
+        display: block;
+        padding: 8px 20px;
+      }
+      &:hover{
+        background: #f4f5f9;
+      }
+      &.selected{
+        background: #35A9A9;
+        border-color: #35A9A9;
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+}

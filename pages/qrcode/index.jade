@@ -1,0 +1,40 @@
+extends /pages/common/base
+block title
+  title 首页
+block pageMain
+  template(id="qrcodeList")
+    .qrcodeItem(v-for="item in qrcodeList")
+      img(:src="item.qrurl")
+    div.delQrCode
+      button(class="btn btn-default", @click="delQrCode") 删除二维码
+
+  template(id="step_one")
+    select#selectTemp.selectTemp
+      option(value="请选择模板") 请选择模板
+      option(value="temp01") 内容追踪
+    button(class="btn btn-default createCodeBtn", v-if="type=='temp01'", @click="toCreateCode") 生成二维码
+  template(id="step_second")
+    div.createCodeBox
+      p.tit 请填写您内容投放的网站,最多只能填写三个
+      div.webUrlItem
+        span 网站一:
+        input(type="text", id="web_one", name="weburl")
+      div.webUrlItem
+        span 网站二:
+        input(type="text", id="web_second", name="weburl")
+      div.webUrlItem
+        span 网站三:
+        input(type="text", id="web_third", name="weburl")
+      div.btnGroups
+        button(type="button", class="btn btn-default", @click="createCode") 提交生成二维码
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 二维码中心
+    .pageMainMiddle
+      component(:is="step")
+  template(v-else)
+    applist(type="qrcode")
+
+block append scripts
+  script(type="text/javascript").
+    require(["qrcode"])

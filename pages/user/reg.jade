@@ -1,0 +1,31 @@
+extends /pages/common/user_base
+block body
+  .userActWrap
+    .userActInner
+      .regBox
+        .formBox
+          h2 注册
+          form
+            div.formGroup
+              .inputLabel
+                span.inputTip.userIcon
+                input(name="username", type="text", id="username", placeholder="用户名")
+              .inputLabel
+                span.inputTip.pwdIcon
+                input(name="password", type="password", id="password", placeholder="设置密码")
+              .inputLabel
+                span.inputTip.pwdIcon
+                input(name="password", type="password", id="password2", placeholder="再次输入密码")
+              .inputLabel
+                .chkInput
+                  span.chkBox
+                  input(type="checkbox", id="isAgree")
+                  span.agreement
+                    | 同意并已阅读了
+                    a(href="#") <<小粉橡用户协议>>
+            .btnLabel
+              button(type="button", class="defBtn regBtn") 注 册
+              a(href="javascript:history.go(-1);", class="backLnk") 返回
+block scripts
+  script.
+    require(["reg"])

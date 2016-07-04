@@ -1,0 +1,31 @@
+div.msgListTop
+  span.msgTopTip
+    | 全部消息
+    span (文字消息保存5天，其它类型消息只保存3天)
+  //label
+    input(type="checkbox")
+    span 隐藏关键词信息
+.msgListWrap
+  ul.msgList
+    li.msgItem(v-for="item in msgList")
+      .msgShowInfo
+        .msgAct
+          span.replyStatus {{item.msg_status!="0" ? "已回复" : ""}}
+          //a.msgActIcon.colecte(href="javascript:;")
+          a.msgActIcon.reply(href="javascript:;")
+        .msgInfo
+          .msgAva
+            a(href="#")
+              img(:src="item.user_headimgurl")
+          .msgOther
+            a.msgAuthor(href="#") {{item.fan_nikeName}}
+            p.msgDesc {{item.msg_content}}
+          span.msgTime {{item.create_time | getTime}}
+      .msgReplyWrap
+        div.replyCtn
+          textarea
+          .replyBtns
+            button(type="button", class="btn btn-success", @click="replyMsg(item.id, $event)") 发送(Enter)
+            button(type="button", class="btn btn-default hideReply") 收起
+  pager(:pinfo="pageInfo")
+

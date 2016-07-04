@@ -1,0 +1,41 @@
+.newsSourceHead
+  span 图文信息(共{{newsList.length}}条)
+  .newsSourceSort
+    i.grid(@click="formatStyle('grid')", :class="{'active': formatType=='grid'}")
+    i.list(@click="formatStyle('list')", :class="{'active': formatType=='list'}")
+  .mulSelectBtn(v-show="formatType=='grid'&&newsList.length>0")
+    button(type="button", class="btn btn-default", @click="toggleMulCheck") 多选
+    button(type="button", class="btn btn-warning", @click="delMulItem", v-show="toggleCheck") 删除多选
+.newsSourceMiddle
+  ul.newsSourceList.grid(v-if="formatType=='grid'")
+    template(v-if="newsList.length")
+      li(v-for="(key,item) in newsList")
+        .msgContent
+          div.newsCheck(v-if="toggleCheck")
+            label
+              input(type="checkbox", class="js_isCheck", :value="key")
+              span 选择
+              input(type="hidden", :value="item.media_id")
+          h4.msgTitle {{item.content.news_item[0].title}}
+          p.msgDate {{item.content.create_time|getDate}}
+          .msgThumb
+            img(:src="item.content.news_item[0].thumb_url")
+          p.msgDesc {{item.content.news_item[0].digest}}
+        .msgActBtn
+          span.tips
+            i.msgEditBtn(data-tipso="编辑", @click.stop.prevent="eidtMediaItem", :data-editkey="item.media_id")
+          span.tips
+            i.msgDelBtn(@click.stop.prevent="delMediaItem(item, $event)", :data-delkey="item.media_id")
+  ul.newsSourceList.list(v-if="formatType=='list'")
+    template(v-if="newsList.length")
+      li(v-for="item in newsList")
+        .msgActBtn
+          a(href="javascript", @click.stop.prevent="delMediaItem(item, $event)", :data-delkey="item.media_id") 删除
+        .msgContent
+          .msgThumb
+            img(:src="item.content.news_item[0].thumb_url")
+          p.msgDate {{item.content.create_time|getDate}}
+          .msgTitle
+            a(href="#") {{item.content.news_item[0].title}}
+
+

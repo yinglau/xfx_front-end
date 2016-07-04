@@ -1,0 +1,15 @@
+.navSideBar
+  dl.navList
+    dt.navHead 功能
+    dd.navItem(v-for="item in links")
+      a(:href="item.url") {{item.name}}
+    //dd.navItem
+    //  a(href="/pages/auto-reply/index.html") 自动回复
+    //dd.navItem
+    //  a(href="/pages/user-menu/index.html") 自定义菜单
+    //dd.navItem
+    //  a(href="/pages/fans-manage/index.html") 用户管理
+    //dd.navItem
+    //  a(href="/pages/msg-manage/index.html") 信息管理
+    //dd.navItem
+    //  a(href="/pages/source-manage/index.html") 素材管理

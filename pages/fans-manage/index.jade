@@ -1,0 +1,14 @@
+extends /pages/common/base
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 用户管理
+    .pageMainMiddle#fansBox
+      //fans-box(:grouplist="grouplist", :userlist="userlist", :usercount="usercount")
+      fans-box
+  template(v-else)
+      applist(type="wxuser")
+  .pageMainFoot
+block append scripts
+  script(type="text/javascript").
+    require(["index"])

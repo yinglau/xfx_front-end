@@ -1,0 +1,14 @@
+extends ../common/base
+block append head
+block pageMain
+  template(v-if="isChkApp")
+    .pageMainHead
+      h2.pageMainHeadTip 自定义菜单
+    .pageMainMiddle#menubox
+      comp-sort
+  template(v-else)
+    .infoPrimary 请选择公众号进行菜单操作!
+  .pageMainFoot
+block append scripts
+  script(type="text/javascript").
+    require(["index"])
